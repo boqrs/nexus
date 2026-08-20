@@ -1,0 +1,109 @@
+package iot
+
+import "testing"
+
+func TestConfigSetDefault(t *testing.T) {
+	tests := []struct {
+		name string
+		cfg  Config
+		want Config
+	}{
+		{
+			name: "set defaults",
+			cfg:  Config{},
+			want: Config{
+				Region:                    "ap-southeast-1",
+				CredentialDurationSeconds: 3600,
+			},
+		},
+		{
+			name: "keep existing values",
+			cfg: Config{
+				Region:                    "us-east-1",
+				CredentialDurationSeconds: 7200,
+			},
+			want: Config{
+				Region:                    "us-east-1",
+				CredentialDurationSeconds: 7200,
+			},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			cfg := tt.cfg
+
+			cfg.SetDefault()
+
+			if cfg.Region != tt.want.Region {
+				t.Fatalf("Region = %s, want %s",
+					cfg.Region,
+					tt.want.Region,
+				)
+			}
+
+			if cfg.CredentialDurationSeconds != tt.want.CredentialDurationSeconds {
+				t.Fatalf(
+					"CredentialDurationSeconds = %d, want %d",
+					cfg.CredentialDurationSeconds,
+					tt.want.CredentialDurationSeconds,
+				)
+			}
+		})
+	}
+}
+
+func TestConfigValidate(t *testing.T) {
+	tests := []struct {
+		name    string
+		cfg     Config
+		wantErr bool
+	}{
+		{
+			name: "valid",
+			cfg: Config{
+				Region: "ap-southeast-1",
+
+				AccountID: "123456789012",
+
+				ScopedAccessRoleARN: "arn:aws:iam::123456789012:role/test",
+			},
+		},
+
+		{
+			name: "missing account",
+
+			cfg: Config{
+				Region: "ap-southeast-1",
+			},
+
+			wantErr: true,
+		},
+
+		{
+			name: "missing role",
+
+			cfg: Config{
+				Region: "ap-southeast-1",
+
+				AccountID: "123456789012",
+			},
+
+			wantErr: true,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			err := tt.cfg.Validate()
+
+			if (err != nil) != tt.wantErr {
+				t.Fatalf(
+					"Validate() error=%v wantErr=%v",
+					err,
+					tt.wantErr,
+				)
+			}
+		})
+	}
+}

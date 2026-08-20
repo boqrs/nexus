@@ -1,0 +1,20 @@
+{
+  "service_name": "my-service",
+  "version": "1.0.0",
+  "port": 8080,
+  "debug": false,
+  "timeout": "30s",
+  "features": ["tracing", "metrics", "logging"],
+  "database": {
+    "driver": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "app",
+    "password": "password",
+    "database": "app_db"
+  },
+  "cache": {
+    "enabled": true,
+    "ttl": "1h"
+  }
+}
