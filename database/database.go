@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	config "codeup.aliyun.com/65b21d33076e069afe3d3253/basice/comm/config/v2"
-	"codeup.aliyun.com/65b21d33076e069afe3d3253/basice/comm/database/driver"
+	config "github.com/boqrs/nexus/config/v2"
+	"github.com/boqrs/nexus/database/driver"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
