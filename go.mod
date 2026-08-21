@@ -3,7 +3,6 @@ module github.com/boqrs/nexus
 go 1.26.4
 
 require (
-	codeup.aliyun.com/65b21d33076e069afe3d3253/basice/comm v1.0.1
 	github.com/aliyun/alibaba-cloud-sdk-go v1.63.107
 	github.com/aliyun/aliyun-oss-go-sdk v3.0.2+incompatible
 	github.com/aws/aws-sdk-go v1.55.8

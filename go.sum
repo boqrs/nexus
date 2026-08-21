@@ -1,5 +1,3 @@
-codeup.aliyun.com/65b21d33076e069afe3d3253/basice/comm v1.0.1 h1:Q9yI0NHANyA92fiS0MkdVopEDJs0laxZEp20AE5U6rA=
-codeup.aliyun.com/65b21d33076e069afe3d3253/basice/comm v1.0.1/go.mod h1:yoix9aNESnTLvo7F8HljAZQYEAbiNQgHoC2Z2BdT5pU=
 dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod h1:H6x//7gZCb22OMCxBHrMx7a5I7Hp++hsVxbQ4BYO7hU=
 filippo.io/edwards25519 v1.2.0 h1:crnVqOiS4jqYleHd9vaKZ+HKtHfllngJIiOpNpoJsjo=
 filippo.io/edwards25519 v1.2.0/go.mod h1:xzAOLCNug/yB62zG1bQ8uziwrIqIuxhctzJT18Q77mc=
